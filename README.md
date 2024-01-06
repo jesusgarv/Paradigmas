@@ -1,8 +1,10 @@
 # Proyecto final Paradigmas de programación
 
 Trabajo realizado por los alumnos:
+
 Monserrat Sanchez Juarez
-Un puto random
+
+Samuel Alejandro Torrez Oropeza
 
 ## Detalles del proyecto
 
