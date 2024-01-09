@@ -25,7 +25,13 @@ describe Organismos;
 insert into Organismos values (null, 'E. Coli', 'Escherichia coli', 'E. coli es la bacteria anaerobia facultativa comensal más abundante de la microbiota del tracto gastrointestinal en donde junto con otros microorganismos es esencial para el funcionamiento correcto del proceso digestivo.', 50.0, 1,2,3,4,4,4,4,4);
 insert into Organismos values (null, 'Test', 'Test data', 'E. coli es la bacteria anaerobia facultativa comensal más abundante de la microbiota del tracto gastrointestinal en donde junto con otros microorganismos es esencial para el funcionamiento correcto del proceso digestivo.', 20.0, 1,2,3,1,1,1,1,1);
 
-select O.nombre_comun, O.nombre_cientifico, O.caracteristicas, O.tiempo_de_vida, TOr.tipo_organismo, R.nombreReino, P.Phyllumnombre, C.Clasenombre, Ord.Ordennombre, G.GeneroNombre, E.Especienombre, F.FamiliaGenero 
+alter table Organismos add nombre_imagen varchar(40);
+
+select * from Organismos;
+
+update Organismos set tiempo_de_vida= 8 where id_organismos = 2;
+
+select O.nombre_comun, O.nombre_cientifico, O.caracteristicas, O.tiempo_de_vida, TOr.tipo_organismo, R.nombreReino, P.Phyllumnombre, C.Clasenombre, Ord.Ordennombre, G.GeneroNombre, E.Especienombre, F.FamiliaGenero, O.nombre_imagen 
 from Organismos O 
 left join Tipo_Organismo TOr on O.Tipo_Organismo_id_tipo_organismo = TOr.id_tipo_organismo
 left join Reino R on O.Reino_idReino = R.idReino

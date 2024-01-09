@@ -1,7 +1,7 @@
 conn = database('Project DB','root','rootroot');
-query = ['select O.nombre_comun, O.nombre_cientifico, O.caracteristicas, ' ...
+query = ['select O.nombre_comun, O.nombre_cientifico, caracteristicas, ' ...
     'O.tiempo_de_vida, TOr.tipo_organismo, R.nombreReino, P.Phyllumnombre, ' ...
-    'C.Clasenombre, Ord.Ordennombre, G.GeneroNombre, E.Especienombre, F.FamiliaGenero ' ...
+    'C.Clasenombre, Ord.Ordennombre, G.GeneroNombre, E.Especienombre, F.FamiliaGenero, O.nombre_imagen ' ...
     'from Organismos O ' ...
     'left join Tipo_Organismo TOr on O.Tipo_Organismo_id_tipo_organismo = TOr.id_tipo_organismo ' ...
     'left join Reino R on O.Reino_idReino = R.idReino ' ...
@@ -25,6 +25,8 @@ bichos = bicho.empty(0,numel(data));
 
 dimensions = size(data);
 
+names = strings(dimensions(1),0);
+
 for i = 1:dimensions(1)
     instruction = strcat("python/scripts.py ", num2str(data{i,4}));
 
@@ -37,8 +39,9 @@ for i = 1:dimensions(1)
     end
 
     clear n instruction
-
-    bichos(i) = bicho(data{i,1}, data{i,2}, data{i,3}, result, data{i,5}, data{i,6}, data{i,7}, data{i,8}, data{i,9}, data{i,10}, data{1,11}, data{i,12});
+    
+    names(i) = data{i,1};
+    bichos(i) = bicho(data{i,1}, data{i,2}, data{i,3}, result, data{i,5}, data{i,6}, data{i,7}, data{i,8}, data{i,9}, data{i,10}, data{i,11}, data{i,12}, data{i,13});
 end
 
 clear i dimensions result data

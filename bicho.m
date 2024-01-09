@@ -12,10 +12,11 @@ classdef bicho
         genero
         especie
         familia
+        imagen
     end
 
     methods
-        function obj = bicho(nombreComun, nombreCientifico, caracteristicas, tiempoDeVida, tipoOrganismo, reino, phyllum, clase, orden, genero, especie, familia)
+        function obj = bicho(nombreComun, nombreCientifico, caracteristicas, tiempoDeVida, tipoOrganismo, reino, phyllum, clase, orden, genero, especie, familia, imagen)
             obj.nombreComun = nombreComun;
             obj.nombreCientifico = nombreCientifico;
             obj.caracteristicas = caracteristicas;
@@ -28,6 +29,11 @@ classdef bicho
             obj.genero = genero;
             obj.especie = especie;
             obj.familia = familia;
+            obj.imagen = imagen;
+        end
+
+        function isthis = compareName(obj, nombreComun)
+            isthis = strcmp(obj.nombreComun, nombreComun);
         end
 
         function nombreComun = get.nombreComun(obj)
